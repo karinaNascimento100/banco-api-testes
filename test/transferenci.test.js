@@ -32,7 +32,7 @@ describe('Transferencias', () => {
         });
 
         it('Deve retornar falha com 422 quando o valor da transferencia for abaixo de R$10', async () => {
-            const token = await obterToken('julio.lima', '123456');
+
 
             const resposta = await request(BASE_URL)
                 .post('/transferencias')
