@@ -8,10 +8,14 @@ const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 describe('Transferencias', () => {
     describe('POST /transferencias', () => {
+        let token
 
+        beforeEach(async () => {
+            token = await obterToken('julio.lima', '123456');
+        })
         it('Deve retornar sucesso com 201 quando o valor da transferencia for igual ou acima de R$10', async () => {
 
-            const token = await obterToken('julio.lima', '123456');
+
 
             const resposta = await request(BASE_URL)
                 .post('/transferencias')
